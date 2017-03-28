@@ -1,0 +1,62 @@
+
+    digraph xtext {
+    fontname = "Bitstream Vera Sans"
+    fontsize = 8
+    node[
+        shape=record,
+        style=filled,
+        fillcolor=aliceblue
+    ]
+    nodesep = 0.3
+    edge[dir=black,arrowtail=empty]
+
+
+2955652393280 -> 2955652428240 [label="models:0" arrowtail=diamond dir=both]
+2955652428240 -> 2955652428520 [label="elements:0" arrowtail=diamond dir=both]
+2955652428520 -> 2955652428744 [label="datatype" arrowtail=diamond dir=both]
+2955652428744 -> 2955652428856 [label="charfield" arrowtail=diamond dir=both]
+2955652428856 -> 2955652429136 [label="parameters:0" arrowtail=diamond dir=both]
+2955652429136 -> 2955652429248 [label="max_length" arrowtail=diamond dir=both]
+2955652429248[label="{:MaxLength|+number:str='5'\l}"]
+2955652429136[label="{:Parameters|}"]
+2955652428856 -> 2955652429192 [label="parameters:1" arrowtail=diamond dir=both]
+2955652429192 -> 2955652429360 [label="null" arrowtail=diamond dir=both]
+2955652429360[label="{:Null|+value:str='True'\l}"]
+2955652429192[label="{:Parameters|}"]
+2955652428856[label="{:CharField|}"]
+2955652428744[label="{:DataType|}"]
+2955652428520[label="{el1:StructureElement|}"]
+2955652428240 -> 2955652428632 [label="elements:1" arrowtail=diamond dir=both]
+2955652428632 -> 2955652428912 [label="datatype" arrowtail=diamond dir=both]
+2955652428912 -> 2955652429080 [label="charfield" arrowtail=diamond dir=both]
+2955652429080 -> 2955652429584 [label="parameters:0" arrowtail=diamond dir=both]
+2955652429584 -> 2955652429640 [label="max_length" arrowtail=diamond dir=both]
+2955652429640[label="{:MaxLength|+number:str='6'\l}"]
+2955652429584[label="{:Parameters|}"]
+2955652429080 -> 2955652429528 [label="parameters:1" arrowtail=diamond dir=both]
+2955652429528 -> 2955652429752 [label="null" arrowtail=diamond dir=both]
+2955652429752[label="{:Null|+value:str='True'\l}"]
+2955652429528[label="{:Parameters|}"]
+2955652429080[label="{:CharField|}"]
+2955652428912[label="{:DataType|}"]
+2955652428632[label="{el1:StructureElement|}"]
+2955652428240[label="{test:Model|}"]
+2955652393280 -> 2955652428464 [label="models:1" arrowtail=diamond dir=both]
+2955652428464 -> 2955652428688 [label="elements:0" arrowtail=diamond dir=both]
+2955652428688 -> 2955652429304 [label="datatype" arrowtail=diamond dir=both]
+2955652429304 -> 2955652429472 [label="textfield" arrowtail=diamond dir=both]
+2955652429472 -> 2955652429920 [label="parameters:0" arrowtail=diamond dir=both]
+2955652429920 -> 2955652430088 [label="max_length" arrowtail=diamond dir=both]
+2955652430088[label="{:MaxLength|+number:str='5'\l}"]
+2955652429920[label="{:Parameters|}"]
+2955652429472 -> 2955652430032 [label="parameters:1" arrowtail=diamond dir=both]
+2955652430032 -> 2955652430200 [label="null" arrowtail=diamond dir=both]
+2955652430200[label="{:Null|+value:str='True'\l}"]
+2955652430032[label="{:Parameters|}"]
+2955652429472[label="{:TextField|}"]
+2955652429304[label="{:DataType|}"]
+2955652428688[label="{el11:StructureElement|}"]
+2955652428464[label="{novi_test:Model|}"]
+2955652393280[label="{:Models|}"]
+
+}

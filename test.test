@@ -1,0 +1,7 @@
+model test{
+	el1 = CharField(max_length = 5, null = True)
+	el1 = CharField(max_length = 6, null = True)
+};
+model novi_test{
+	el11 = TextField(max_length = 5, null = True)
+};
