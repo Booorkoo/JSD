@@ -57,7 +57,6 @@ def execute(path, grammar_file_name, example_file_name, export_dot, export_png):
         dict['model'] = model.name
         dict['elements'] = elements
         '''for element in elements:
-            dict[]
             dict['name'] = element.name
             if element.datatype.charfield is not None:
                 dict['DataType'] = 'CharField'
@@ -72,6 +71,7 @@ def execute(path, grammar_file_name, example_file_name, export_dot, export_png):
 
     print('bla bla')
     print(models1)
+
     def test(models):
         string = 'from __future__ import unicode_literals\n\nfrom django.db import migrations, models\nimport django.db.models.deletion\nimport django.utils.timezone\n\n\nclass Migration(migrations.Migration):\n\n\tinitial = True\n\n\tdependencies = [\n\t]\n\n\toperations = ['
         for model in models:
@@ -79,6 +79,98 @@ def execute(path, grammar_file_name, example_file_name, export_dot, export_png):
             string += 'migrations.CreateModel('
             string += '\n\t\t\tname=' + "'" + str(model['model']) + "',"
             string += '\n\t\t\tfields=['
+            string += '\n\t\t\t\t(' + "'id'" + ",models.AutoField" + "(auto_created=True, primary_key=True, serialize=False, verbose_name=" + "'ID')),"
+            for element in model['elements']:
+                string += '\n\t\t\t\t(' + "'"
+                string += element.name + "'," + "models."
+                if element.datatype.charfield is not None:
+                    string += 'CharField' + "("
+
+                    if len(element.datatype.charfield.parameters) == 0:
+                        string += ")),"
+
+                    elif len(element.datatype.charfield.parameters) == 1:
+                        if element.datatype.charfield.parameters[0].max_length is not None:
+                            string += 'max_length=' + element.datatype.charfield.parameters[0].max_length.number + ")),"
+                        if element.datatype.charfield.parameters[0].null is not None:
+                            string += 'null=' + element.datatype.charfield.parameters[0].null.value + ")),"
+                        if element.datatype.charfield.parameters[0].default is not None:
+                            string += 'default=' + element.datatype.charfield.parameters[0].default.number + ")),"
+
+                    elif len(element.datatype.charfield.parameters) == 3:
+                        string += 'max_length=' + element.datatype.charfield.parameters[0].max_length.number + ", "
+                        string += 'null=' + element.datatype.charfield.parameters[1].null.value + ", "
+                        string += 'default=' + element.datatype.charfield.parameters[2].default.number + ")),"
+
+                    elif element.datatype.charfield.parameters[0].max_length and element.datatype.charfield.parameters[1].null is not None:
+                        string += 'max_length=' + element.datatype.charfield.parameters[0].max_length.number + ", "
+                        string += 'null=' + element.datatype.charfield.parameters[1].null.value + ")),"
+
+                    elif element.datatype.charfield.parameters[0].null and element.datatype.charfield.parameters[1].max_length is not None:
+                        string += 'null=' + element.datatype.charfield.parameters[0].null.value + ", "
+                        string += 'max_length=' + element.datatype.charfield.parameters[1].max_length.number + ")),"
+
+                    elif element.datatype.charfield.parameters[0].max_length and element.datatype.charfield.parameters[1].default is not None:
+                        string += 'max_length=' + element.datatype.charfield.parameters[0].max_length.number + ", "
+                        string += 'default=' + element.datatype.charfield.parameters[1].default.number + ")),"
+
+                    elif element.datatype.charfield.parameters[0].default and element.datatype.charfield.parameters[1].max_length is not None:
+                        string += 'default=' + element.datatype.charfield.parameters[0].default.number + ", "
+                        string += 'max_length=' + element.datatype.charfield.parameters[1].max_length.number + ")),"
+
+                    elif element.datatype.charfield.parameters[0].null and element.datatype.charfield.parameters[1].default is not None:
+                        string += 'null=' + element.datatype.charfield.parameters[0].null.value + ","
+                        string += 'default=' + element.datatype.charfield.parameters[1].default.number + ")),"
+
+                    elif element.datatype.charfield.parameters[0].default and element.datatype.charfield.parameters[1].null is not None:
+                        string += 'default=' + element.datatype.charfield.parameters[0].default.number + ", "
+                        string += 'null=' + element.datatype.charfield.parameters[1].null.value + ")),"
+
+                else:
+                    string += 'TextField' + "("
+
+                    if len(element.datatype.textfield.parameters) == 0:
+                        string += ")),"
+
+                    if len(element.datatype.textfield.parameters) == 1:
+                        if element.datatype.textfield.parameters[0].max_length is not None:
+                            string += 'max_length=' + element.datatype.textfield.parameters[0].max_length.number + ")),"
+                        if element.datatype.textfield.parameters[0].null is not None:
+                            string += 'null=' + element.datatype.textfield.parameters[0].null.value + ")),"
+                        if element.datatype.textfield.parameters[0].default is not None:
+                            string += 'default=' + element.datatype.textfield.parameters[0].default.number + ")),"
+
+                    elif len(element.datatype.textfield.parameters) == 3:
+                        string += 'max_length=' + element.datatype.textfield.parameters[0].max_length.number + ", "
+                        string += 'null=' + element.datatype.textfield.parameters[1].null.value + ", "
+                        string += 'default=' + element.datatype.textfield.parameters[2].default.number + ")),"
+
+                    elif element.datatype.textfield.parameters[0].max_length and element.datatype.textfield.parameters[1].null is not None:
+                        string += 'max_length=' + element.datatype.textfield.parameters[0].max_length.number + ", "
+                        string += 'null=' + element.datatype.textfield.parameters[1].null.value + ")),"
+
+                    elif element.datatype.textfield.parameters[0].null and element.datatype.textfield.parameters[1].max_length is not None:
+                        string += 'null=' + element.datatype.textfield.parameters[0].null.value + ","
+                        string += 'max_length=' + element.datatype.textfield.parameters[1].max_length.number + ")), "
+
+                    elif element.datatype.textfield.parameters[0].max_length and element.datatype.textfield.parameters[1].default is not None:
+                        string += 'max_length=' + element.datatype.textfield.parameters[0].max_length.number + ", "
+                        string += 'default=' + element.datatype.textfield.parameters[1].default.number + ")),"
+
+                    elif element.datatype.textfield.parameters[0].default and element.datatype.textfield.parameters[1].max_length is not None:
+                        string += 'default=' + element.datatype.textfield.parameters[0].default.number + ", "
+                        string += 'max_length=' + element.datatype.textfield.parameters[1].max_length.number + ")),"
+
+                    elif element.datatype.textfield.parameters[0].null and element.datatype.textfield.parameters[1].default is not None:
+                        string += 'null=' + element.datatype.textfield.parameters[0].null.value + ","
+                        string += 'default=' + element.datatype.textfield.parameters[1].default.number + ")), "
+
+                    elif element.datatype.textfield.parameters[0].default and element.datatype.textfield.parameters[1].null is not None:
+                        string += 'default=' + element.datatype.textfield.parameters[0].default.number + ", "
+                        string += 'null=' + element.datatype.textfield.parameters[1].null.value + ")),"
+
+
+
 
             string += '\n\t\t\t],'
             string += '\n\t\t),'

@@ -4,11 +4,11 @@ Models:
 
 Model:
 	'model' name = ID '{'
-	elements *= StructureElement
+	elements *= ModelElement
 	'}'';'
 ;
 
-StructureElement:
+ModelElement:
 	name = ID '=' datatype = DataType
 ;
 
@@ -25,11 +25,15 @@ TextField:
 ;
 
 Parameters:
-    max_length = MaxLength | null = Null
+    max_length = MaxLength | null = Null | default = Default
 ;
 
 MaxLength:
     'max_length' '=' number = Number
+;
+
+Default:
+    'default' '=' number = Number
 ;
 
 Number:
@@ -43,3 +47,4 @@ Null:
 Value:
     'True' | 'False'
 ;
+
