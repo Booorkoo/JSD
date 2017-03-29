@@ -151,7 +151,7 @@ def execute(path, grammar_file_name, example_file_name, export_dot, export_png):
 
                     elif element.datatype.textfield.parameters[0].null and element.datatype.textfield.parameters[1].max_length is not None:
                         string += 'null=' + element.datatype.textfield.parameters[0].null.value + ","
-                        string += 'max_length=' + element.datatype.textfield.parameters[1].max_length.number + ")), "
+                        string += 'max_length=' + element.datatype.textfield.parameters[1].max_length.number + ")),"
 
                     elif element.datatype.textfield.parameters[0].max_length and element.datatype.textfield.parameters[1].default is not None:
                         string += 'max_length=' + element.datatype.textfield.parameters[0].max_length.number + ", "
@@ -163,14 +163,11 @@ def execute(path, grammar_file_name, example_file_name, export_dot, export_png):
 
                     elif element.datatype.textfield.parameters[0].null and element.datatype.textfield.parameters[1].default is not None:
                         string += 'null=' + element.datatype.textfield.parameters[0].null.value + ","
-                        string += 'default=' + element.datatype.textfield.parameters[1].default.number + ")), "
+                        string += 'default=' + element.datatype.textfield.parameters[1].default.number + ")),"
 
                     elif element.datatype.textfield.parameters[0].default and element.datatype.textfield.parameters[1].null is not None:
                         string += 'default=' + element.datatype.textfield.parameters[0].default.number + ", "
                         string += 'null=' + element.datatype.textfield.parameters[1].null.value + ")),"
-
-
-
 
             string += '\n\t\t\t],'
             string += '\n\t\t),'
@@ -180,5 +177,113 @@ def execute(path, grammar_file_name, example_file_name, export_dot, export_png):
 
     with open('C:/Users/Johny/Desktop/jsd/jsd/0001_initial.py', 'w') as f:
         a = test(models1)
+        f.write(a)
+
+
+    def test1(models):
+        string = 'import os\nfrom django.db import models'
+        for model in models:
+            string += '\n\nclass '
+            string += str(model['model']) + "(" + 'models.Model' + "):"
+            for element in model['elements']:
+                string += '\n\t'
+                string += element.name + "=" + "models."
+                if element.datatype.charfield is not None:
+                    string += 'CharField' + "("
+
+                    if len(element.datatype.charfield.parameters) == 0:
+                        string += ")"
+
+                    elif len(element.datatype.charfield.parameters) == 1:
+                        if element.datatype.charfield.parameters[0].max_length is not None:
+                            string += 'max_length=' + element.datatype.charfield.parameters[0].max_length.number + ")"
+                        if element.datatype.charfield.parameters[0].null is not None:
+                            string += 'null=' + element.datatype.charfield.parameters[0].null.value + ")"
+                        if element.datatype.charfield.parameters[0].default is not None:
+                            string += 'default=' + element.datatype.charfield.parameters[0].default.number + ")"
+
+                    elif len(element.datatype.charfield.parameters) == 3:
+                        string += 'max_length=' + element.datatype.charfield.parameters[0].max_length.number + ", "
+                        string += 'null=' + element.datatype.charfield.parameters[1].null.value + ", "
+                        string += 'default=' + element.datatype.charfield.parameters[2].default.number + ")"
+
+                    elif element.datatype.charfield.parameters[0].max_length and element.datatype.charfield.parameters[1].null is not None:
+                        string += 'max_length=' + element.datatype.charfield.parameters[0].max_length.number + ", "
+                        string += 'null=' + element.datatype.charfield.parameters[1].null.value + ")"
+
+                    elif element.datatype.charfield.parameters[0].null and element.datatype.charfield.parameters[1].max_length is not None:
+                        string += 'null=' + element.datatype.charfield.parameters[0].null.value + ", "
+                        string += 'max_length=' + element.datatype.charfield.parameters[1].max_length.number + ")"
+
+                    elif element.datatype.charfield.parameters[0].max_length and element.datatype.charfield.parameters[1].default is not None:
+                        string += 'max_length=' + element.datatype.charfield.parameters[0].max_length.number + ", "
+                        string += 'default=' + element.datatype.charfield.parameters[1].default.number + ")"
+
+                    elif element.datatype.charfield.parameters[0].default and element.datatype.charfield.parameters[1].max_length is not None:
+                        string += 'default=' + element.datatype.charfield.parameters[0].default.number + ", "
+                        string += 'max_length=' + element.datatype.charfield.parameters[1].max_length.number + ")"
+
+                    elif element.datatype.charfield.parameters[0].null and element.datatype.charfield.parameters[1].default is not None:
+                        string += 'null=' + element.datatype.charfield.parameters[0].null.value + ","
+                        string += 'default=' + element.datatype.charfield.parameters[1].default.number + ")"
+
+                    elif element.datatype.charfield.parameters[0].default and element.datatype.charfield.parameters[1].null is not None:
+                        string += 'default=' + element.datatype.charfield.parameters[0].default.number + ", "
+                        string += 'null=' + element.datatype.charfield.parameters[1].null.value + ")"
+
+                else:
+                    string += 'TextField' + "("
+
+                    if len(element.datatype.textfield.parameters) == 0:
+                        string += ")"
+
+                    if len(element.datatype.textfield.parameters) == 1:
+                        if element.datatype.textfield.parameters[0].max_length is not None:
+                            string += 'max_length=' + element.datatype.textfield.parameters[0].max_length.number + ")"
+                        if element.datatype.textfield.parameters[0].null is not None:
+                            string += 'null=' + element.datatype.textfield.parameters[0].null.value + ")"
+                        if element.datatype.textfield.parameters[0].default is not None:
+                            string += 'default=' + element.datatype.textfield.parameters[0].default.number + ")"
+
+                    elif len(element.datatype.textfield.parameters) == 3:
+                        string += 'max_length=' + element.datatype.textfield.parameters[0].max_length.number + ", "
+                        string += 'null=' + element.datatype.textfield.parameters[1].null.value + ", "
+                        string += 'default=' + element.datatype.textfield.parameters[2].default.number + ")"
+
+                    elif element.datatype.textfield.parameters[0].max_length and element.datatype.textfield.parameters[1].null is not None:
+                        string += 'max_length=' + element.datatype.textfield.parameters[0].max_length.number + ", "
+                        string += 'null=' + element.datatype.textfield.parameters[1].null.value + ")"
+
+                    elif element.datatype.textfield.parameters[0].null and element.datatype.textfield.parameters[1].max_length is not None:
+                        string += 'null=' + element.datatype.textfield.parameters[0].null.value + ","
+                        string += 'max_length=' + element.datatype.textfield.parameters[1].max_length.number + ")"
+
+                    elif element.datatype.textfield.parameters[0].max_length and element.datatype.textfield.parameters[1].default is not None:
+                        string += 'max_length=' + element.datatype.textfield.parameters[0].max_length.number + ", "
+                        string += 'default=' + element.datatype.textfield.parameters[1].default.number + ")"
+
+                    elif element.datatype.textfield.parameters[0].default and element.datatype.textfield.parameters[1].max_length is not None:
+                        string += 'default=' + element.datatype.textfield.parameters[0].default.number + ", "
+                        string += 'max_length=' + element.datatype.textfield.parameters[1].max_length.number + ")"
+
+                    elif element.datatype.textfield.parameters[0].null and element.datatype.textfield.parameters[1].default is not None:
+                        string += 'null=' + element.datatype.textfield.parameters[0].null.value + ","
+                        string += 'default=' + element.datatype.textfield.parameters[1].default.number + ")"
+
+                    elif element.datatype.textfield.parameters[0].default and element.datatype.textfield.parameters[1].null is not None:
+                        string += 'default=' + element.datatype.textfield.parameters[0].default.number + ", "
+                        string += 'null=' + element.datatype.textfield.parameters[1].null.value + ")"
+
+            string += '\n\n\t'
+            string += "'''"
+            string += '\n\tYou can chose one of these atributes to be returned instead of type object!'
+            string += '\n\tdef __str__(self):'
+            for element in model['elements']:
+                string += '\n\t\treturn self.' + element.name
+            string += '\n\t' + "'''"
+        return string
+
+    with open('C:/Users/Johny/Desktop/jsd/jsd/models.py', 'w') as f:
+        a = test1(models1)
         f.write(a)
 
