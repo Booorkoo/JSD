@@ -289,10 +289,6 @@ def execute(path, grammar_file_name, example_file_name, export_dot, export_png):
 
     def test2(models):
         string = 'from django.views import generic\nfrom django.views.generic.edit import CreateView, UpdateView, DeleteView\nfrom django.core.urlresolvers import reverse_lazy, reverse\n'
-        '''string += 'from .models import '
-        for model in models:
-            string += str(model['model']) + ', '
-        '''
         for model in models:
             string += '\n'
             string += 'from .models import ' + str(model['model'])
@@ -335,6 +331,15 @@ def execute(path, grammar_file_name, example_file_name, export_dot, export_png):
             string += '\n\ttemplate_name=' + "'" + '.html' + "'"
             string += '\n\tmodel=' + str(model['model'])
             string += '\n\tsuccess_url=reverse_lazy(' + "'" + "'" + ")"
+
+            # ListView generator
+            string += '\n\n'
+            string += '#List view for ' + str(model['model']) + ' model.\n'
+            string += 'class ' + str(model['model']) + 'ListView' + '(generic.ListView):'
+            string += '\n\ttemplate_name=' + "'" + '.html' + "'"
+            string += '\n\tcontext_object_name=' + "'" + 'all_' + str(model['model']) + "'"
+            string += '\n\tdef get_queryset(self):'
+            string += '\n\t\treturn ' + str(model['model']) + '.object.all'
 
         return string
 

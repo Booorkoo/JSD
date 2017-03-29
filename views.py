@@ -24,6 +24,13 @@ class testDeleteView(DeleteView):
 	model=test
 	success_url=reverse_lazy('')
 
+#List view for test model.
+class testListView(generic.ListView):
+	template_name='.html'
+	context_object_name='all_test'
+	def get_queryset(self):
+		return test.object.all
+
 #Create view for novi_test model.
 class novi_testCreateView(CreateView):
 	template_name='.html'
@@ -42,3 +49,10 @@ class novi_testDeleteView(DeleteView):
 	template_name='.html'
 	model=novi_test
 	success_url=reverse_lazy('')
+
+#List view for novi_test model.
+class novi_testListView(generic.ListView):
+	template_name='.html'
+	context_object_name='all_novi_test'
+	def get_queryset(self):
+		return novi_test.object.all

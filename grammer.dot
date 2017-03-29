@@ -11,59 +11,59 @@
     edge[dir=black,arrowtail=empty]
 
 
-2893404097800[ label="{Null|+value:Value\l}"]
+2220744482680 -> 2220744473240[arrowtail=diamond, dir=both, headlabel="models 0..*"]
+2220744482680[ label="{Models|}"]
 
-2893403247592[ label="{MaxLength|+number:Number\l}"]
+2220744473240 -> 2220744474184[arrowtail=diamond, dir=both, headlabel="elements 0..*"]
+2220744473240[ label="{Model|+name:ID\l}"]
 
-2893403246648[ label="{Default|+number:Number\l}"]
+2220744474184 -> 2220744476072[arrowtail=diamond, dir=both, headlabel="datatype "]
+2220744474184[ label="{ModelElement|+name:ID\l}"]
 
-2893403245704 -> 2893403248536[arrowtail=diamond, dir=both, headlabel="parameters 0..*"]
-2893403245704[ label="{TextField|}"]
+2220744478904[ label="{Default|+number:Number\l}"]
 
-2893403248536 -> 2893403247592[arrowtail=diamond, dir=both, headlabel="max_length "]
-2893403248536 -> 2893404097800[arrowtail=diamond, dir=both, headlabel="null "]
-2893403248536 -> 2893403246648[arrowtail=diamond, dir=both, headlabel="default "]
-2893403248536[ label="{Parameters|}"]
+2220744481736[ label="{Number|[0-9]+}"]
 
-2893403242872 -> 2893403248536[arrowtail=diamond, dir=both, headlabel="parameters 0..*"]
-2893403242872[ label="{CharField|}"]
+2220744480792 -> 2220744477960[arrowtail=diamond, dir=both, headlabel="max_length "]
+2220744480792 -> 2220744483624[arrowtail=diamond, dir=both, headlabel="null "]
+2220744480792 -> 2220744478904[arrowtail=diamond, dir=both, headlabel="default "]
+2220744480792[ label="{Parameters|}"]
 
-2893403237208 -> 2893403238152[arrowtail=diamond, dir=both, headlabel="models 0..*"]
-2893403237208[ label="{Models|}"]
+2220744476072 -> 2220744485512[arrowtail=diamond, dir=both, headlabel="charfield "]
+2220744476072 -> 2220744477016[arrowtail=diamond, dir=both, headlabel="textfield "]
+2220744476072[ label="{DataType|}"]
 
-2893403249480[ label="{Number|[0-9]+}"]
+2220744483624[ label="{Null|+value:Value\l}"]
 
-2893403239096 -> 2893403242872[arrowtail=diamond, dir=both, headlabel="charfield "]
-2893403239096 -> 2893403245704[arrowtail=diamond, dir=both, headlabel="textfield "]
-2893403239096[ label="{DataType|}"]
+2220744477960[ label="{MaxLength|+number:Number\l}"]
 
-2893403238152 -> 2893403241928[arrowtail=diamond, dir=both, headlabel="elements 0..*"]
-2893403238152[ label="{Model|+name:ID\l}"]
+2220744477016 -> 2220744480792[arrowtail=diamond, dir=both, headlabel="parameters 0..*"]
+2220744477016[ label="{TextField|}"]
 
-2893403241928 -> 2893403239096[arrowtail=diamond, dir=both, headlabel="datatype "]
-2893403241928[ label="{ModelElement|+name:ID\l}"]
+2220744484568[ label="{Value|True\|False}"]
 
-2893404098744[ label="{Value|True\|False}"]
+2220744485512 -> 2220744480792[arrowtail=diamond, dir=both, headlabel="parameters 0..*"]
+2220744485512[ label="{CharField|}"]
 
-2893403240040[ label="{INT|}"]
+2220744470408[ label="{NUMBER|}"]
+2220744470408 -> 2220744475128 [dir=back]
+2220744470408 -> 2220744479848 [dir=back]
 
-2893403230600[ label="{STRING|}"]
+2220744471352[ label="{BASETYPE|}"]
+2220744471352 -> 2220744470408 [dir=back]
+2220744471352 -> 2220744469464 [dir=back]
+2220744471352 -> 2220744468520 [dir=back]
+2220744471352 -> 2220744472296 [dir=back]
 
-2893403223992[ label="{BASETYPE|}"]
-2893403223992 -> 2893403224936 [dir=back]
-2893403223992 -> 2893403235320 [dir=back]
-2893403223992 -> 2893403225880 [dir=back]
-2893403223992 -> 2893403230600 [dir=back]
+2220744475128[ label="{FLOAT|}"]
 
-2893403224936[ label="{NUMBER|}"]
-2893403224936 -> 2893403223048 [dir=back]
-2893403224936 -> 2893403240040 [dir=back]
+2220744469464[ label="{BOOL|}"]
 
-2893403223048[ label="{FLOAT|}"]
+2220744479848[ label="{INT|}"]
 
-2893403225880[ label="{ID|}"]
+2220744468520[ label="{ID|}"]
 
-2893403235320[ label="{BOOL|}"]
+2220744472296[ label="{STRING|}"]
 
 
 }
