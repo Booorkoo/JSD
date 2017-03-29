@@ -287,3 +287,28 @@ def execute(path, grammar_file_name, example_file_name, export_dot, export_png):
         a = test1(models1)
         f.write(a)
 
+    def test2(models):
+        string = 'from django.views import generic\nfrom django.views.generic.edit import CreateView, UpdateView, DeleteView\nfrom django.core.urlresolvers import reverse_lazy, reverse\n'
+        '''string += 'from .models import '
+        for model in models:
+            string += str(model['model']) + ', '
+        '''
+        for model in models:
+            string += '\n'
+            string += 'from .models import ' + str(model['model'])
+        for model in models:
+            string += '\n\n'
+            string += 'class ' + str(model['model']) + 'CreateView' + '(CreateView):'
+            string += '\n\ttemplate_name=' + "'" + '.html' + "'"
+            string += '\n\tmodel=' + str(model['model'])
+            string += '\n\tfields=['
+            for element in model['elements']:
+                string += "'" + element.name + "', "
+            string += ']'
+
+        return string
+
+    with open('C:/Users/Johny/Desktop/jsd/jsd/views.py', 'w') as f:
+        a = test2(models1)
+        f.write(a)
+

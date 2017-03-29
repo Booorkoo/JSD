@@ -11,59 +11,59 @@
     edge[dir=black,arrowtail=empty]
 
 
-1849490629912[ label="{Null|+value:Value\l}"]
+2581475806408[ label="{Default|+number:Number\l}"]
 
-1849489669144 -> 1849489069624[arrowtail=diamond, dir=both, headlabel="models 0..*"]
-1849489669144[ label="{Models|}"]
+2581475816792 -> 2581475818680[arrowtail=diamond, dir=both, headlabel="parameters 0..*"]
+2581475816792[ label="{CharField|}"]
 
-1849490650680[ label="{Value|True\|False}"]
+2581475809240[ label="{MaxLength|+number:Number\l}"]
 
-1849490649736[ label="{MaxLength|+number:Number\l}"]
+2581475815848 -> 2581475804520[arrowtail=diamond, dir=both, headlabel="datatype "]
+2581475815848[ label="{ModelElement|+name:ID\l}"]
 
-1849490641240 -> 1849490630856[arrowtail=diamond, dir=both, headlabel="parameters 0..*"]
-1849490641240[ label="{CharField|}"]
+2581475807352[ label="{Number|[0-9]+}"]
 
-1849490626136 -> 1849490641240[arrowtail=diamond, dir=both, headlabel="charfield "]
-1849490626136 -> 1849490628968[arrowtail=diamond, dir=both, headlabel="textfield "]
-1849490626136[ label="{DataType|}"]
+2581475824344 -> 2581475814904[arrowtail=diamond, dir=both, headlabel="models 0..*"]
+2581475824344[ label="{Models|}"]
 
-1849489069624 -> 1849490631800[arrowtail=diamond, dir=both, headlabel="elements 0..*"]
-1849489069624[ label="{Model|+name:ID\l}"]
+2581475808296[ label="{Null|+value:Value\l}"]
 
-1849490631800 -> 1849490626136[arrowtail=diamond, dir=both, headlabel="datatype "]
-1849490631800[ label="{ModelElement|+name:ID\l}"]
+2581475805464 -> 2581475818680[arrowtail=diamond, dir=both, headlabel="parameters 0..*"]
+2581475805464[ label="{TextField|}"]
 
-1849490645016[ label="{Default|+number:Number\l}"]
+2581475804520 -> 2581475816792[arrowtail=diamond, dir=both, headlabel="charfield "]
+2581475804520 -> 2581475805464[arrowtail=diamond, dir=both, headlabel="textfield "]
+2581475804520[ label="{DataType|}"]
 
-1849490630856 -> 1849490649736[arrowtail=diamond, dir=both, headlabel="max_length "]
-1849490630856 -> 1849490629912[arrowtail=diamond, dir=both, headlabel="null "]
-1849490630856 -> 1849490645016[arrowtail=diamond, dir=both, headlabel="default "]
-1849490630856[ label="{Parameters|}"]
+2581475810184[ label="{Value|True\|False}"]
 
-1849490640296[ label="{Number|[0-9]+}"]
+2581475818680 -> 2581475809240[arrowtail=diamond, dir=both, headlabel="max_length "]
+2581475818680 -> 2581475808296[arrowtail=diamond, dir=both, headlabel="null "]
+2581475818680 -> 2581475806408[arrowtail=diamond, dir=both, headlabel="default "]
+2581475818680[ label="{Parameters|}"]
 
-1849490628968 -> 1849490630856[arrowtail=diamond, dir=both, headlabel="parameters 0..*"]
-1849490628968[ label="{TextField|}"]
+2581475814904 -> 2581475815848[arrowtail=diamond, dir=both, headlabel="elements 0..*"]
+2581475814904[ label="{Model|+name:ID\l}"]
 
-1849489661592[ label="{BOOL|}"]
+2581475803576[ label="{STRING|}"]
 
-1849489665368[ label="{STRING|}"]
+2581475820568[ label="{BOOL|}"]
 
-1849489668200[ label="{FLOAT|}"]
+2581475813960[ label="{BASETYPE|}"]
+2581475813960 -> 2581475813016 [dir=back]
+2581475813960 -> 2581475820568 [dir=back]
+2581475813960 -> 2581475822456 [dir=back]
+2581475813960 -> 2581475803576 [dir=back]
 
-1849489670088[ label="{BASETYPE|}"]
-1849489670088 -> 1849489667256 [dir=back]
-1849489670088 -> 1849489661592 [dir=back]
-1849489670088 -> 1849489655928 [dir=back]
-1849489670088 -> 1849489665368 [dir=back]
+2581475812072[ label="{FLOAT|}"]
 
-1849489655928[ label="{ID|}"]
+2581475822456[ label="{ID|}"]
 
-1849489666312[ label="{INT|}"]
+2581475823400[ label="{INT|}"]
 
-1849489667256[ label="{NUMBER|}"]
-1849489667256 -> 1849489668200 [dir=back]
-1849489667256 -> 1849489666312 [dir=back]
+2581475813016[ label="{NUMBER|}"]
+2581475813016 -> 2581475812072 [dir=back]
+2581475813016 -> 2581475823400 [dir=back]
 
 
 }
