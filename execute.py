@@ -72,6 +72,7 @@ def execute(path, grammar_file_name, example_file_name, export_dot, export_png):
     print('bla bla')
     print(models1)
 
+    #Generator koda za initial.py
     def test(models):
         string = 'from __future__ import unicode_literals\n\nfrom django.db import migrations, models\nimport django.db.models.deletion\nimport django.utils.timezone\n\n\nclass Migration(migrations.Migration):\n\n\tinitial = True\n\n\tdependencies = [\n\t]\n\n\toperations = ['
         for model in models:
@@ -174,12 +175,11 @@ def execute(path, grammar_file_name, example_file_name, export_dot, export_png):
         string += '\n\t]'
         return string
 
-
     with open('C:/Users/Johny/Desktop/mrk/mysite/myapp/migrations/0001_initial.py', 'w') as f:
         a = test(models1)
         f.write(a)
 
-
+    # Generator koda za models.py
     def test1(models):
         string = 'import os\nfrom django.db import models'
         for model in models:
@@ -287,6 +287,7 @@ def execute(path, grammar_file_name, example_file_name, export_dot, export_png):
         a = test1(models1)
         f.write(a)
 
+    #Generator koda za views.py
     def test2(models):
         string = 'from django.views import generic\nfrom django.views.generic.edit import CreateView, UpdateView, DeleteView\nfrom django.core.urlresolvers import reverse_lazy, reverse\n'
         for model in models:
@@ -347,15 +348,19 @@ def execute(path, grammar_file_name, example_file_name, export_dot, export_png):
         a = test2(models1)
         f.write(a)
 
+    #Generator koda za urls.py u okviru aplikacije
     def test3(models):
-        string = 'kkk'
+        string = 'from django.conf.urls import url\nfrom . import views\n'
+        string += '\n' + 'app_name = ' + "'" + 'myapp' + "'"
+        string += '\n\nurlspaterns = [' + '\n\n' + ']'
+
         return string
 
     with open('C:/Users/Johny/Desktop/mrk/mysite/myapp/urls.py', 'w') as f:
         a = test3(models1)
         f.write(a)
 
-
+    #Generator koda za admin.py
     def test4(models):
         string = 'from django.contrib import admin\nfrom .models import '
         last = len(models) - 1
