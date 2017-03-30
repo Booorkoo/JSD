@@ -2,57 +2,57 @@ from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy, reverse
 
-from .models import test
-from .models import novi_test
+from .models import Osoba
+from .models import Grad
 
-#Create view for test model.
-class testCreateView(CreateView):
+#Create view for Osoba model.
+class OsobaCreateView(CreateView):
 	template_name='.html'
-	model=test
-	fields=['el1', 'el2', 'el3', 'el4', 'el4', 'el5']
+	model=Osoba
+	fields=['ime', 'prezime', 'jmbg', 'bracno_stanje', 'zaposlenje']
 	success_url=reverse_lazy('')
 
-#Update view for test model.
-class testUpdateView(UpdateView):
+#Update view for Osoba model.
+class OsobaUpdateView(UpdateView):
 	template_name='.html'
-	model=test
-	fields=['el1', 'el2', 'el3', 'el4', 'el4', 'el5']
+	model=Osoba
+	fields=['ime', 'prezime', 'jmbg', 'bracno_stanje', 'zaposlenje']
 
-#Delete view for test model.
-class testDeleteView(DeleteView):
+#Delete view for Osoba model.
+class OsobaDeleteView(DeleteView):
 	template_name='.html'
-	model=test
+	model=Osoba
 	success_url=reverse_lazy('')
 
-#List view for test model.
-class testListView(generic.ListView):
+#List view for Osoba model.
+class OsobaListView(generic.ListView):
 	template_name='.html'
-	context_object_name='all_test'
+	context_object_name='all_Osoba'
 	def get_queryset(self):
-		return test.object.all
+		return Osoba.object.all
 
-#Create view for novi_test model.
-class novi_testCreateView(CreateView):
+#Create view for Grad model.
+class GradCreateView(CreateView):
 	template_name='.html'
-	model=novi_test
-	fields=['el11', 'el12', 'el13', 'el14']
+	model=Grad
+	fields=['naziv', 'oblast', 'postanski_broj']
 	success_url=reverse_lazy('')
 
-#Update view for novi_test model.
-class novi_testUpdateView(UpdateView):
+#Update view for Grad model.
+class GradUpdateView(UpdateView):
 	template_name='.html'
-	model=novi_test
-	fields=['el11', 'el12', 'el13', 'el14']
+	model=Grad
+	fields=['naziv', 'oblast', 'postanski_broj']
 
-#Delete view for novi_test model.
-class novi_testDeleteView(DeleteView):
+#Delete view for Grad model.
+class GradDeleteView(DeleteView):
 	template_name='.html'
-	model=novi_test
+	model=Grad
 	success_url=reverse_lazy('')
 
-#List view for novi_test model.
-class novi_testListView(generic.ListView):
+#List view for Grad model.
+class GradListView(generic.ListView):
 	template_name='.html'
-	context_object_name='all_novi_test'
+	context_object_name='all_Grad'
 	def get_queryset(self):
-		return novi_test.object.all
+		return Grad.object.all

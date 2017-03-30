@@ -14,25 +14,23 @@ class Migration(migrations.Migration):
 
 	operations = [
 		migrations.CreateModel(
-			name='test',
+			name='Osoba',
 			fields=[
 				('id',models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-				('el1',models.CharField(max_length=5, null=True, default=1)),
-				('el2',models.TextField(max_length=6, null=True)),
-				('el3',models.TextField(default=1, max_length=6)),
-				('el4',models.TextField(max_length=6)),
-				('el4',models.CharField(default=0)),
-				('el5',models.CharField()),
+				('ime',models.CharField(max_length=5, null=True, default=1)),
+				('prezime',models.TextField(max_length=6, null=True)),
+				('jmbg',models.TextField(default=1, max_length=6)),
+				('bracno_stanje',models.TextField(max_length=6)),
+				('zaposlenje',models.CharField(default=0)),
 			],
 		),
 		migrations.CreateModel(
-			name='novi_test',
+			name='Grad',
 			fields=[
 				('id',models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-				('el11',models.TextField(max_length=5, null=True)),
-				('el12',models.TextField(max_length=5)),
-				('el13',models.CharField(max_length=5, null=True, default=1)),
-				('el14',models.CharField()),
+				('naziv',models.TextField(max_length=5, null=True)),
+				('oblast',models.TextField(max_length=5)),
+				('postanski_broj',models.CharField(max_length=5, null=True, default=1)),
 			],
 		),
 	]

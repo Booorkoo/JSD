@@ -175,7 +175,7 @@ def execute(path, grammar_file_name, example_file_name, export_dot, export_png):
         return string
 
 
-    with open('C:/Users/Johny/Desktop/jsd/jsd/0001_initial.py', 'w') as f:
+    with open('C:/Users/Johny/Desktop/mrk/mysite/myapp/migrations/0001_initial.py', 'w') as f:
         a = test(models1)
         f.write(a)
 
@@ -283,7 +283,7 @@ def execute(path, grammar_file_name, example_file_name, export_dot, export_png):
             string += '\n\t' + "'''"
         return string
 
-    with open('C:/Users/Johny/Desktop/jsd/jsd/models.py', 'w') as f:
+    with open('C:/Users/Johny/Desktop/mrk/mysite/myapp/models.py', 'w') as f:
         a = test1(models1)
         f.write(a)
 
@@ -343,7 +343,34 @@ def execute(path, grammar_file_name, example_file_name, export_dot, export_png):
 
         return string
 
-    with open('C:/Users/Johny/Desktop/jsd/jsd/views.py', 'w') as f:
+    with open('C:/Users/Johny/Desktop/mrk/mysite/myapp/views.py', 'w') as f:
         a = test2(models1)
         f.write(a)
 
+    def test3(models):
+        string = 'kkk'
+        return string
+
+    with open('C:/Users/Johny/Desktop/mrk/mysite/myapp/urls.py', 'w') as f:
+        a = test3(models1)
+        f.write(a)
+
+
+    def test4(models):
+        string = 'from django.contrib import admin\nfrom .models import '
+        last = len(models) - 1
+        for i, model in enumerate(models):
+            string += str(model['model'])
+            if i == last:
+                string += '' + '\n'
+            else:
+                string += ', '
+        for model in models:
+            string += '\n'
+            string += 'admin.site.register(' + str(model['model']) + ')'
+
+        return string
+
+    with open('C:/Users/Johny/Desktop/mrk/mysite/myapp/admin.py', 'w') as f:
+        a = test4(models1)
+        f.write(a)

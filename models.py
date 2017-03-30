@@ -1,36 +1,32 @@
 import os
 from django.db import models
 
-class test(models.Model):
-	el1=models.CharField(max_length=5, null=True, default=1)
-	el2=models.TextField(max_length=6, null=True)
-	el3=models.TextField(default=1, max_length=6)
-	el4=models.TextField(max_length=6)
-	el4=models.CharField(default=0)
-	el5=models.CharField()
+class Osoba(models.Model):
+	ime=models.CharField(max_length=5, null=True, default=1)
+	prezime=models.TextField(max_length=6, null=True)
+	jmbg=models.TextField(default=1, max_length=6)
+	bracno_stanje=models.TextField(max_length=6)
+	zaposlenje=models.CharField(default=0)
 
 	'''
 	You can chose one of these atributes to be returned instead of type object!
 	def __str__(self):
-		return self.el1
-		return self.el2
-		return self.el3
-		return self.el4
-		return self.el4
-		return self.el5
+		return self.ime
+		return self.prezime
+		return self.jmbg
+		return self.bracno_stanje
+		return self.zaposlenje
 	'''
 
-class novi_test(models.Model):
-	el11=models.TextField(max_length=5, null=True)
-	el12=models.TextField(max_length=5)
-	el13=models.CharField(max_length=5, null=True, default=1)
-	el14=models.CharField()
+class Grad(models.Model):
+	naziv=models.TextField(max_length=5, null=True)
+	oblast=models.TextField(max_length=5)
+	postanski_broj=models.CharField(max_length=5, null=True, default=1)
 
 	'''
 	You can chose one of these atributes to be returned instead of type object!
 	def __str__(self):
-		return self.el11
-		return self.el12
-		return self.el13
-		return self.el14
+		return self.naziv
+		return self.oblast
+		return self.postanski_broj
 	'''
