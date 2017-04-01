@@ -396,3 +396,33 @@ def execute(path, grammar_file_name, example_file_name, export_dot, export_png):
     with open('C:/Users/Johny/Desktop/mrk/mysite/myapp/admin.py', 'w') as f:
         a = test4(models1)
         f.write(a)
+
+
+    def test5(models):
+        string = '"""prject URL Configuration\n\n'
+        string += 'The `urlpatterns` list routes URLs to views. For more information please see:\n\t'
+        string += 'The `urlpatterns` list routes URLs to views. For more information please see:\n'
+        string += 'Examples:\n'
+        string += 'Function views\n\t'
+        string += '1. Add an import:  from my_app import views\n\t'
+        string += '2. Add a URL to urlpatterns:  url(r' + "'" + '^$' + "'" +', views.home, name=' + "'" + 'home' + "'" + ')\n'
+        string += 'Class-based views\n\t'
+        string += '1. Add an import:  from other_app.views import Home\n\t'
+        string += '2. Add a URL to urlpatterns:  url(r' + "'" + '^$' + "'" + ', Home.as_view(), name=' + "'" + 'home' + "'" + ')\n'
+        string += 'Including another URLconf\n\t'
+        string += '1. Import the include() function: from django.conf.urls import url, include\n\t'
+        string += '2. Add a URL to urlpatterns:  url(r' + "'" '^blog/' + "'" + ', include(' + "'" + 'blog.urls' + "'" + '))\n'
+        string += '"""\n'
+        string += 'from django.conf.urls import include, url\n'
+        string += 'from django.contrib import admin\n\n'
+        string += 'urlpatterns = [\n\t'
+        string += 'url(r' + "'" + '^admin/' + "', " + 'admin.site.urls),\n\t'
+        string += 'url(r' + "'" + '^myapp/' + "', " + 'include(' + "'myapp.urls'" + ')),\n'
+        string += ']'
+
+        return string
+
+
+    with open('C:/Users/Johny/Desktop/mrk/mysite/mysite/urls.py', 'w') as f:
+        a = test5(models1)
+        f.write(a)
