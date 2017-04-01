@@ -74,7 +74,7 @@ def execute(path, grammar_file_name, example_file_name, export_dot, export_png):
 
     #Generator koda za initial.py
     def test(models):
-        string = 'from __future__ import unicode_literals\n\nfrom django.db import migrations, models\nimport django.db.models.deletion\nimport django.utils.timezone\n\n\nclass Migration(migrations.Migration):\n\n\tinitial = True\n\n\tdependencies = [\n\t]\n\n\toperations = ['
+        string = 'from __future__ import unicode_literals\nfrom django.db import migrations, models\nimport django.db.models.deletion\nimport django.utils.timezone\n\n\nclass Migration(migrations.Migration):\n\n\tinitial = True\n\n\tdependencies = [\n\t]\n\n\toperations = ['
         for model in models:
             string += '\n\t\t'
             string += 'migrations.CreateModel('

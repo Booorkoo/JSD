@@ -13,7 +13,7 @@ ModelElement:
 ;
 
 DataType:
-    charfield = CharField | textfield = TextField
+    charfield = CharField | textfield = TextField | datatimefield = DataTimeField | integerfield = IntegerField | booleanfield = BooleanField
 ;
 
 CharField:
@@ -24,8 +24,20 @@ TextField:
     'TextField' '(' parameters *= Parameters[','] ')'
 ;
 
+DataTimeField:
+    'DataTimeField' '(' parameters *= Parameters[','] ')'
+;
+
+IntegerField:
+    'IntegerField' '(' parameters *= Parameters[','] ')'
+;
+
+BooleanField:
+    'BooleanField' '(' parameters *= Parameters[','] ')'
+;
+
 Parameters:
-    max_length = MaxLength | null = Null | default = Default
+    max_length = MaxLength | null = Null | default = Default | blank = Blank
 ;
 
 MaxLength:
@@ -33,7 +45,7 @@ MaxLength:
 ;
 
 Default:
-    'default' '=' number = Number
+    'default' '=' number = Number | timezone = Timezone
 ;
 
 Number:
@@ -44,7 +56,18 @@ Null:
     'null' '=' value = Value
 ;
 
+Blank:
+    'blank' '=' value = Value
+;
+
 Value:
     'True' | 'False'
 ;
 
+Timezone:
+    'timezone.' var = Var
+;
+
+Var:
+    'now' | 'datetime.year' | 'datetime.month' | 'datetime.day' | 'datetime.hour'
+;
