@@ -13,7 +13,7 @@ ModelElement:
 ;
 
 DataType:
-    charfield = CharField | textfield = TextField | datatimefield = DataTimeField | integerfield = IntegerField | booleanfield = BooleanField
+    charfield = CharField | textfield = TextField | foreignkey = ForeignKey | datatimefield = DataTimeField | integerfield = IntegerField | booleanfield = BooleanField
 ;
 
 CharField:
@@ -22,6 +22,14 @@ CharField:
 
 TextField:
     'TextField' '(' parameters *= Parameters[','] ')'
+;
+
+ForeignKey:
+    'ForeignKey' '(' 'model' '=' classs = Classs ',' parameters *= Parameters[','] ')'
+;
+
+Classs:
+    ID
 ;
 
 DataTimeField:
@@ -37,7 +45,7 @@ BooleanField:
 ;
 
 Parameters:
-    max_length = MaxLength | null = Null | default = Default | blank = Blank
+    max_length = MaxLength | null = Null | default = Default | blank = Blank | on_delete = OnDelete
 ;
 
 MaxLength:
@@ -70,4 +78,8 @@ Timezone:
 
 Var:
     'now' | 'datetime.year' | 'datetime.month' | 'datetime.day' | 'datetime.hour'
+;
+
+OnDelete:
+    'on_delete' '=' 'models.CASCADE'
 ;

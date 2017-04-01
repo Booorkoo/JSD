@@ -11,79 +11,87 @@
     edge[dir=black,arrowtail=empty]
 
 
-1817741137640 -> 1817741121592[arrowtail=diamond, dir=both, headlabel="parameters 0..*"]
-1817741137640[ label="{CharField|}"]
+2619990526136[ label="{Timezone|+var:Var\l}"]
 
-1817741122536 -> 1817741125368[arrowtail=diamond, dir=both, headlabel="timezone "]
-1817741122536[ label="{Default|+number:Number\l}"]
+2619990506312 -> 2619990510088[arrowtail=diamond, dir=both, headlabel="parameters 0..*"]
+2619990506312[ label="{IntegerField|}"]
 
-1817741121592 -> 1817741153688[arrowtail=diamond, dir=both, headlabel="max_length "]
-1817741121592 -> 1817741155576[arrowtail=diamond, dir=both, headlabel="null "]
-1817741121592 -> 1817741122536[arrowtail=diamond, dir=both, headlabel="default "]
-1817741121592 -> 1817741124424[arrowtail=diamond, dir=both, headlabel="blank "]
-1817741121592[ label="{Parameters|}"]
+2619990510088 -> 2619990484600[arrowtail=diamond, dir=both, headlabel="max_length "]
+2619990510088 -> 2619990486488[arrowtail=diamond, dir=both, headlabel="null "]
+2619990510088 -> 2619990516696[arrowtail=diamond, dir=both, headlabel="default "]
+2619990510088 -> 2619990523304[arrowtail=diamond, dir=both, headlabel="blank "]
+2619990510088[ label="{Parameters|+on_delete:OnDelete\l}"]
 
-1817741124424[ label="{Blank|+value:Value\l}"]
+2619990505368[ label="{Classs|ID}"]
 
-1817741125368[ label="{Timezone|+var:Var\l}"]
+2619990497816 -> 2619990509144[arrowtail=diamond, dir=both, headlabel="datatype "]
+2619990497816[ label="{ModelElement|+name:ID\l}"]
 
-1817741148024 -> 1817741121592[arrowtail=diamond, dir=both, headlabel="parameters 0..*"]
-1817741148024[ label="{IntegerField|}"]
+2619990518584[ label="{Value|True\|False}"]
 
-1817741146136 -> 1817741133864[arrowtail=diamond, dir=both, headlabel="datatype "]
-1817741146136[ label="{ModelElement|+name:ID\l}"]
+2619990514808 -> 2619990510088[arrowtail=diamond, dir=both, headlabel="parameters 0..*"]
+2619990514808[ label="{DataTimeField|}"]
 
-1817741155576[ label="{Null|+value:Value\l}"]
+2619990503480 -> 2619990510088[arrowtail=diamond, dir=both, headlabel="parameters 0..*"]
+2619990503480[ label="{CharField|}"]
 
-1817741132920 -> 1817741120648[arrowtail=diamond, dir=both, headlabel="models 0..*"]
-1817741132920[ label="{Models|}"]
+2619990512920 -> 2619990511976[arrowtail=diamond, dir=both, headlabel="models 0..*"]
+2619990512920[ label="{Models|}"]
 
-1817741138584 -> 1817741121592[arrowtail=diamond, dir=both, headlabel="parameters 0..*"]
-1817741138584[ label="{DataTimeField|}"]
+2619990517640[ label="{Number|[0-9]+}"]
 
-1817741157464[ label="{Var|now\|datetime.year\|datetime.month\|datetime.day\|datetime.hour}"]
+2619990511976 -> 2619990497816[arrowtail=diamond, dir=both, headlabel="elements 0..*"]
+2619990511976[ label="{Model|+name:ID\l}"]
 
-1817741120648 -> 1817741146136[arrowtail=diamond, dir=both, headlabel="elements 0..*"]
-1817741120648[ label="{Model|+name:ID\l}"]
+2619990516696 -> 2619990526136[arrowtail=diamond, dir=both, headlabel="timezone "]
+2619990516696[ label="{Default|+number:Number\l}"]
 
-1817741152744 -> 1817741121592[arrowtail=diamond, dir=both, headlabel="parameters 0..*"]
-1817741152744[ label="{TextField|}"]
+2619990504424 -> 2619990510088[arrowtail=diamond, dir=both, headlabel="parameters 0..*"]
+2619990504424[ label="{ForeignKey|+classs:Classs\l}"]
 
-1817741133864 -> 1817741137640[arrowtail=diamond, dir=both, headlabel="charfield "]
-1817741133864 -> 1817741152744[arrowtail=diamond, dir=both, headlabel="textfield "]
-1817741133864 -> 1817741138584[arrowtail=diamond, dir=both, headlabel="datatimefield "]
-1817741133864 -> 1817741148024[arrowtail=diamond, dir=both, headlabel="integerfield "]
-1817741133864 -> 1817741150856[arrowtail=diamond, dir=both, headlabel="booleanfield "]
-1817741133864[ label="{DataType|}"]
+2619990523304[ label="{Blank|+value:Value\l}"]
 
-1817741150856 -> 1817741121592[arrowtail=diamond, dir=both, headlabel="parameters 0..*"]
-1817741150856[ label="{BooleanField|}"]
+2619990519528[ label="{Var|now\|datetime.year\|datetime.month\|datetime.day\|datetime.hour}"]
 
-1817741153688[ label="{MaxLength|+number:Number\l}"]
+2619990542184[ label="{OnDelete|on_delete = models.CASCADE}"]
 
-1817741154632[ label="{Number|[0-9]+}"]
+2619990507256 -> 2619990510088[arrowtail=diamond, dir=both, headlabel="parameters 0..*"]
+2619990507256[ label="{BooleanField|}"]
 
-1817741156520[ label="{Value|True\|False}"]
+2619990486488[ label="{Null|+value:Value\l}"]
 
-1817741151800[ label="{FLOAT|}"]
+2619990509144 -> 2619990503480[arrowtail=diamond, dir=both, headlabel="charfield "]
+2619990509144 -> 2619990515752[arrowtail=diamond, dir=both, headlabel="textfield "]
+2619990509144 -> 2619990504424[arrowtail=diamond, dir=both, headlabel="foreignkey "]
+2619990509144 -> 2619990514808[arrowtail=diamond, dir=both, headlabel="datatimefield "]
+2619990509144 -> 2619990506312[arrowtail=diamond, dir=both, headlabel="integerfield "]
+2619990509144 -> 2619990507256[arrowtail=diamond, dir=both, headlabel="booleanfield "]
+2619990509144[ label="{DataType|}"]
 
-1817741130088[ label="{STRING|}"]
+2619990484600[ label="{MaxLength|+number:Number\l}"]
 
-1817741135752[ label="{BASETYPE|}"]
-1817741135752 -> 1817741139528 [dir=back]
-1817741135752 -> 1817741147080 [dir=back]
-1817741135752 -> 1817741143304 [dir=back]
-1817741135752 -> 1817741130088 [dir=back]
+2619990515752 -> 2619990510088[arrowtail=diamond, dir=both, headlabel="parameters 0..*"]
+2619990515752[ label="{TextField|}"]
 
-1817741139528[ label="{NUMBER|}"]
-1817741139528 -> 1817741151800 [dir=back]
-1817741139528 -> 1817741131976 [dir=back]
+2619990500648[ label="{ID|}"]
 
-1817741131976[ label="{INT|}"]
+2619990493096[ label="{INT|}"]
 
-1817741147080[ label="{BOOL|}"]
+2619990499704[ label="{STRING|}"]
 
-1817741143304[ label="{ID|}"]
+2619990488376[ label="{FLOAT|}"]
+
+2619990487432[ label="{BOOL|}"]
+
+2619990494984[ label="{NUMBER|}"]
+2619990494984 -> 2619990488376 [dir=back]
+2619990494984 -> 2619990493096 [dir=back]
+
+2619990496872[ label="{BASETYPE|}"]
+2619990496872 -> 2619990494984 [dir=back]
+2619990496872 -> 2619990487432 [dir=back]
+2619990496872 -> 2619990500648 [dir=back]
+2619990496872 -> 2619990499704 [dir=back]
 
 
 }

@@ -1,12 +1,14 @@
+model Grad{
+	naziv = TextField(max_length = 5, null = True)
+	oblast = TextField(max_length = 5)
+	postanski_broj = CharField(max_length = 5, null = True, default = 1)
+};
+
 model Osoba{
+    grad = ForeignKey(model = Grad, on_delete = models.CASCADE, default = 1)
 	ime = CharField(max_length = 5, null = True, default = 1)
 	prezime = TextField(max_length = 6, null = True)
 	jmbg = TextField(default = 1, max_length = 6)
 	bracno_stanje = TextField(max_length = 6)
 	zaposlenje = CharField(max_length = 6, default = 0)
-};
-model Grad{
-	naziv = TextField(max_length = 5, null = True)
-	oblast = TextField(max_length = 5)
-	postanski_broj = CharField(max_length = 5, null = True, default = 1)
 };
