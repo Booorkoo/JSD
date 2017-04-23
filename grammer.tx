@@ -13,15 +13,15 @@ ModelElement:
 ;
 
 DataType:
-    charfield = CharField | textfield = TextField | foreignkey = ForeignKey | datatimefield = DataTimeField | integerfield = IntegerField | booleanfield = BooleanField
+    charfield = CharField | emailfield  = EmailField | foreignkey = ForeignKey | datetimefield = DateTimeField | integerfield = IntegerField | booleanfield = BooleanField
 ;
 
 CharField:
     'CharField' '(' parameters *= Parameters[','] ')'
 ;
 
-TextField:
-    'TextField' '(' parameters *= Parameters[','] ')'
+EmailField:
+    'EmailField' '(' parameters *= Parameters[','] ')'
 ;
 
 ForeignKey:
@@ -32,8 +32,8 @@ Classs:
     ID
 ;
 
-DataTimeField:
-    'DataTimeField' '(' parameters *= Parameters[','] ')'
+DateTimeField:
+    'DateTimeField' '(' parameters *= Parameters[','] ')'
 ;
 
 IntegerField:

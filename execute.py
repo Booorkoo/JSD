@@ -136,48 +136,136 @@ def execute(path, grammar_file_name, example_file_name, export_dot, export_png):
                         string += 'default=' + element.datatype.charfield.parameters[0].default.number + ", "
                         string += 'null=' + element.datatype.charfield.parameters[1].null.value + ")),"
 
-                else:
-                    string += 'TextField' + "("
+                elif element.datatype.emailfield is not None:
+                    string += 'EmailField' + "("
 
-                    if len(element.datatype.textfield.parameters) == 0:
+                    if len(element.datatype.emailfield.parameters) == 0:
                         string += ")),"
 
-                    elif len(element.datatype.textfield.parameters) == 1:
-                        if element.datatype.textfield.parameters[0].max_length is not None:
-                            string += 'max_length=' + element.datatype.textfield.parameters[0].max_length.number + ")),"
-                        if element.datatype.textfield.parameters[0].null is not None:
-                            string += 'null=' + element.datatype.textfield.parameters[0].null.value + ")),"
-                        if element.datatype.textfield.parameters[0].default is not None:
-                            string += 'default=' + element.datatype.textfield.parameters[0].default.number + ")),"
+                    elif len(element.datatype.emailfield.parameters) == 1:
+                        if element.datatype.emailfield.parameters[0].max_length is not None:
+                            string += 'max_length=' + element.datatype.emailfield.parameters[0].max_length.number + ")),"
+                        if element.datatype.emailfield.parameters[0].null is not None:
+                            string += 'null=' + element.datatype.emailfield.parameters[0].null.value + ")),"
+                        if element.datatype.emailfield.parameters[0].default is not None:
+                            string += 'default=' + element.datatype.emailfield.parameters[0].default.number + ")),"
 
-                    elif len(element.datatype.textfield.parameters) == 3:
-                        string += 'max_length=' + element.datatype.textfield.parameters[0].max_length.number + ", "
-                        string += 'null=' + element.datatype.textfield.parameters[1].null.value + ", "
-                        string += 'default=' + element.datatype.textfield.parameters[2].default.number + ")),"
+                    elif len(element.datatype.emailfield.parameters) == 3:
+                        string += 'max_length=' + element.datatype.emailfield.parameters[0].max_length.number + ", "
+                        string += 'null=' + element.datatype.emailfield.parameters[1].null.value + ", "
+                        string += 'default=' + element.datatype.emailfield.parameters[2].default.number + ")),"
 
-                    elif element.datatype.textfield.parameters[0].max_length and element.datatype.textfield.parameters[1].null is not None:
-                        string += 'max_length=' + element.datatype.textfield.parameters[0].max_length.number + ", "
-                        string += 'null=' + element.datatype.textfield.parameters[1].null.value + ")),"
+                    elif element.datatype.emailfield.parameters[0].max_length and element.datatype.emailfield.parameters[1].null is not None:
+                        string += 'max_length=' + element.datatype.emailfield.parameters[0].max_length.number + ", "
+                        string += 'null=' + element.datatype.emailfield.parameters[1].null.value + ")),"
 
-                    elif element.datatype.textfield.parameters[0].null and element.datatype.textfield.parameters[1].max_length is not None:
-                        string += 'null=' + element.datatype.textfield.parameters[0].null.value + ","
-                        string += 'max_length=' + element.datatype.textfield.parameters[1].max_length.number + ")),"
+                    elif element.datatype.emailfield.parameters[0].null and element.datatype.emailfield.parameters[1].max_length is not None:
+                        string += 'null=' + element.datatype.emailfield.parameters[0].null.value + ", "
+                        string += 'max_length=' + element.datatype.emailfield.parameters[1].max_length.number + ")),"
 
-                    elif element.datatype.textfield.parameters[0].max_length and element.datatype.textfield.parameters[1].default is not None:
-                        string += 'max_length=' + element.datatype.textfield.parameters[0].max_length.number + ", "
-                        string += 'default=' + element.datatype.textfield.parameters[1].default.number + ")),"
+                    elif element.datatype.emailfield.parameters[0].max_length and element.datatype.emailfield.parameters[1].default is not None:
+                        string += 'max_length=' + element.datatype.emailfield.parameters[0].max_length.number + ", "
+                        string += 'default=' + element.datatype.emailfield.parameters[1].default.number + ")),"
 
-                    elif element.datatype.textfield.parameters[0].default and element.datatype.textfield.parameters[1].max_length is not None:
-                        string += 'default=' + element.datatype.textfield.parameters[0].default.number + ", "
-                        string += 'max_length=' + element.datatype.textfield.parameters[1].max_length.number + ")),"
+                    elif element.datatype.emailfield.parameters[0].default and element.datatype.emailfield.parameters[1].max_length is not None:
+                        string += 'default=' + element.datatype.emailfield.parameters[0].default.number + ", "
+                        string += 'max_length=' + element.datatype.emailfield.parameters[1].max_length.number + ")),"
 
-                    elif element.datatype.textfield.parameters[0].null and element.datatype.textfield.parameters[1].default is not None:
-                        string += 'null=' + element.datatype.textfield.parameters[0].null.value + ","
-                        string += 'default=' + element.datatype.textfield.parameters[1].default.number + ")),"
+                    elif element.datatype.emailfield.parameters[0].null and element.datatype.emailfield.parameters[1].default is not None:
+                        string += 'null=' + element.datatype.emailfield.parameters[0].null.value + ", "
+                        string += 'default=' + element.datatype.emailfield.parameters[1].default.number + ")),"
 
-                    elif element.datatype.textfield.parameters[0].default and element.datatype.textfield.parameters[1].null is not None:
-                        string += 'default=' + element.datatype.textfield.parameters[0].default.number + ", "
-                        string += 'null=' + element.datatype.textfield.parameters[1].null.value + ")),"
+                    elif element.datatype.emailfield.parameters[0].default and element.datatype.emailfield.parameters[1].null is not None:
+                        string += 'default=' + element.datatype.emailfield.parameters[0].default.number + ", "
+                        string += 'null=' + element.datatype.emailfield.parameters[1].null.value + ")),"
+
+
+                elif element.datatype.datetimefield is not None:
+                    string += 'DateTimeField' + "("
+
+                    if len(element.datatype.datetimefield.parameters) == 0:
+                        string += ")),"
+
+                    elif len(element.datatype.datetimefield.parameters) == 1:
+                        if element.datatype.datetimefield.parameters[0].max_length is not None:
+                            string += 'max_length=' + element.datatype.datetimefield.parameters[0].max_length.number + ")),"
+                        if element.datatype.datetimefield.parameters[0].null is not None:
+                            string += 'null=' + element.datatype.datetimefield.parameters[0].null.value + ")),"
+                        if element.datatype.datetimefield.parameters[0].default is not None:
+                            string += 'default=django.utils.timezone.' + element.datatype.datetimefield.parameters[0].default.timezone.var + ")),"
+
+                    elif len(element.datatype.datetimefield.parameters) == 3:
+                        string += 'max_length=' + element.datatype.datetimefield.parameters[0].max_length.number + ", "
+                        string += 'null=' + element.datatype.datetimefield.parameters[1].null.value + ", "
+                        string += 'default=django.utils.timezone.' + element.datatype.datetimefield.parameters[0].default.timezone.var + ")),"
+
+                    elif element.datatype.datetimefield.parameters[0].max_length and element.datatype.datetimefield.parameters[1].null is not None:
+                        string += 'max_length=' + element.datatype.datetimefield.parameters[0].max_length.number + ", "
+                        string += 'null=' + element.datatype.datetimefield.parameters[1].null.value + ")),"
+
+                    elif element.datatype.datetimefield.parameters[0].null and element.datatype.datetimefield.parameters[1].max_length is not None:
+                        string += 'null=' + element.datatype.datetimefield.parameters[0].null.value + ", "
+                        string += 'max_length=' + element.datatype.datetimefield.parameters[1].max_length.number + ")),"
+
+                    elif element.datatype.datetimefield.parameters[0].max_length and element.datatype.datetimefield.parameters[1].default is not None:
+                        string += 'max_length=' + element.datatype.datetimefield.parameters[0].max_length.number + ", "
+                        string += 'default=django.utils.timezone.' + element.datatype.datetimefield.parameters[0].default.timezone.var + ")),"
+
+                    elif element.datatype.datetimefield.parameters[0].default and element.datatype.datetimefield.parameters[1].max_length is not None:
+                        string += 'default=django.utils.timezone.' + element.datatype.datetimefield.parameters[0].default.timezone.var + ")),"
+                        string += 'max_length=' + element.datatype.datetimefield.parameters[1].max_length.number + ")),"
+
+                    elif element.datatype.datetimefield.parameters[0].null and element.datatype.datetimefield.parameters[1].default is not None:
+                        string += 'null=' + element.datatype.datetimefield.parameters[0].null.value + ", "
+                        string += 'default=django.utils.timezone.' + element.datatype.datetimefield.parameters[0].default.timezone.var + ")),"
+
+                    elif element.datatype.datetimefield.parameters[0].default and element.datatype.datetimefield.parameters[1].null is not None:
+                        string += 'default=django.utils.timezone.' + element.datatype.datetimefield.parameters[0].default.timezone.var + ")),"
+                        string += 'null=' + element.datatype.datetimefield.parameters[1].null.value + ")),"
+
+
+                else:
+                    string += 'IntegerField' + "("
+
+                    if len(element.datatype.integerfield.parameters) == 0:
+                        string += ")),"
+
+                    elif len(element.datatype.integerfield.parameters) == 1:
+                        if element.datatype.integerfield.parameters[0].max_length is not None:
+                            string += 'max_length=' + element.datatype.integerfield.parameters[0].max_length.number + ")),"
+                        if element.datatype.integerfield.parameters[0].null is not None:
+                            string += 'null=' + element.datatype.integerfield.parameters[0].null.value + ")),"
+                        if element.datatype.integerfield.parameters[0].default is not None:
+                            string += 'default=' + element.datatype.integerfield.parameters[0].default.number + ")),"
+
+                    elif len(element.datatype.integerfield.parameters) == 3:
+                        string += 'max_length=' + element.datatype.integerfield.parameters[0].max_length.number + ", "
+                        string += 'null=' + element.datatype.integerfield.parameters[1].null.value + ", "
+                        string += 'default=' + element.datatype.integerfield.parameters[2].default.number + ")),"
+
+                    elif element.datatype.integerfield.parameters[0].max_length and element.datatype.integerfield.parameters[1].null is not None:
+                        string += 'max_length=' + element.datatype.integerfield.parameters[0].max_length.number + ", "
+                        string += 'null=' + element.datatype.integerfield.parameters[1].null.value + ")),"
+
+                    elif element.datatype.integerfield.parameters[0].null and element.datatype.integerfield.parameters[1].max_length is not None:
+                        string += 'null=' + element.datatype.integerfield.parameters[0].null.value + ", "
+                        string += 'max_length=' + element.datatype.integerfield.parameters[1].max_length.number + ")),"
+
+                    elif element.datatype.integerfield.parameters[0].max_length and element.datatype.integerfield.parameters[1].default is not None:
+                        string += 'max_length=' + element.datatype.integerfield.parameters[0].max_length.number + ", "
+                        string += 'default=' + element.datatype.integerfield.parameters[1].default.number + ")),"
+
+                    elif element.datatype.integerfield.parameters[0].default and element.datatype.integerfield.parameters[1].max_length is not None:
+                        string += 'default=' + element.datatype.integerfield.parameters[0].default.number + ", "
+                        string += 'max_length=' + element.datatype.integerfield.parameters[1].max_length.number + ")),"
+
+                    elif element.datatype.integerfield.parameters[0].null and element.datatype.integerfield.parameters[1].default is not None:
+                        string += 'null=' + element.datatype.integerfield.parameters[0].null.value + ", "
+                        string += 'default=' + element.datatype.integerfield.parameters[1].default.number + ")),"
+
+                    elif element.datatype.integerfield.parameters[0].default and element.datatype.integerfield.parameters[1].null is not None:
+                        string += 'default=' + element.datatype.integerfield.parameters[0].default.number + ", "
+                        string += 'null=' + element.datatype.integerfield.parameters[1].null.value + ")),"
 
             string += '\n\t\t\t],'
             string += '\n\t\t),'
@@ -190,7 +278,7 @@ def execute(path, grammar_file_name, example_file_name, export_dot, export_png):
 
     # Generator koda za models.py
     def test1(models):
-        string = 'import os\nfrom django.db import models'
+        string = 'import os\nfrom django.db import models\nfrom django.utils import timezone'
         for model in models:
             string += '\n\nclass '
             string += str(model['model']) + "(" + 'models.Model' + "):"
@@ -248,48 +336,136 @@ def execute(path, grammar_file_name, example_file_name, export_dot, export_png):
                         string += 'default=' + element.datatype.charfield.parameters[0].default.number + ", "
                         string += 'null=' + element.datatype.charfield.parameters[1].null.value + ")"
 
+
+                elif element.datatype.emailfield is not None:
+                    string += 'CharField' + "("
+
+                    if len(element.datatype.emailfield.parameters) == 0:
+                        string += ")"
+
+                    elif len(element.datatype.emailfield.parameters) == 1:
+                        if element.datatype.emailfield.parameters[0].max_length is not None:
+                            string += 'max_length=' + element.datatype.emailfield.parameters[0].max_length.number + ")"
+                        if element.datatype.emailfield.parameters[0].null is not None:
+                            string += 'null=' + element.datatype.emailfield.parameters[0].null.value + ")"
+                        if element.datatype.emailfield.parameters[0].default is not None:
+                            string += 'default=' + element.datatype.emailfield.parameters[0].default.number + ")"
+
+                    elif len(element.datatype.emailfield.parameters) == 3:
+                        string += 'max_length=' + element.datatype.emailfield.parameters[0].max_length.number + ", "
+                        string += 'null=' + element.datatype.emailfield.parameters[1].null.value + ", "
+                        string += 'default=' + element.datatype.emailfield.parameters[2].default.number + ")"
+
+                    elif element.datatype.emailfield.parameters[0].max_length and element.datatype.emailfield.parameters[1].null is not None:
+                        string += 'max_length=' + element.datatype.emailfield.parameters[0].max_length.number + ", "
+                        string += 'null=' + element.datatype.emailfield.parameters[1].null.value + ")"
+
+                    elif element.datatype.emailfield.parameters[0].null and element.datatype.emailfield.parameters[1].max_length is not None:
+                        string += 'null=' + element.datatype.emailfield.parameters[0].null.value + ", "
+                        string += 'max_length=' + element.datatype.emailfield.parameters[1].max_length.number + ")"
+
+                    elif element.datatype.emailfield.parameters[0].max_length and element.datatype.emailfield.parameters[1].default is not None:
+                        string += 'max_length=' + element.datatype.emailfield.parameters[0].max_length.number + ", "
+                        string += 'default=' + element.datatype.emailfield.parameters[1].default.number + ")"
+
+                    elif element.datatype.emailfield.parameters[0].default and element.datatype.emailfield.parameters[1].max_length is not None:
+                        string += 'default=' + element.datatype.emailfield.parameters[0].default.number + ", "
+                        string += 'max_length=' + element.datatype.emailfield.parameters[1].max_length.number + ")"
+
+                    elif element.datatype.emailfield.parameters[0].null and element.datatype.emailfield.parameters[1].default is not None:
+                        string += 'null=' + element.datatype.emailfield.parameters[0].null.value + ","
+                        string += 'default=' + element.datatype.emailfield.parameters[1].default.number + ")"
+
+                    elif element.datatype.emailfield.parameters[0].default and element.datatype.emailfield.parameters[1].null is not None:
+                        string += 'default=' + element.datatype.emailfield.parameters[0].default.number + ", "
+                        string += 'null=' + element.datatype.emailfield.parameters[1].null.value + ")"
+
+
+                elif element.datatype.datetimefield is not None:
+                    string += 'DateTimeField' + "("
+
+                    if len(element.datatype.datetimefield.parameters) == 0:
+                        string += ")"
+
+                    elif len(element.datatype.datetimefield.parameters) == 1:
+                        if element.datatype.datetimefield.parameters[0].max_length is not None:
+                            string += 'max_length=' + element.datatype.datetimefield.parameters[0].max_length.number + ")"
+                        if element.datatype.datetimefield.parameters[0].null is not None:
+                            string += 'null=' + element.datatype.datetimefield.parameters[0].null.value + ")"
+                        if element.datatype.datetimefield.parameters[0].default is not None:
+                            string += 'default=timezone.' + element.datatype.datetimefield.parameters[0].default.timezone.var + ")"
+
+                    elif len(element.datatype.datetimefield.parameters) == 3:
+                        string += 'max_length=' + element.datatype.datetimefield.parameters[0].max_length.number + ", "
+                        string += 'null=' + element.datatype.datetimefield.parameters[1].null.value + ", "
+                        string += 'default=timezone.' + element.datatype.datetimefield.parameters[2].default.timezone.var + ")"
+
+                    elif element.datatype.datetimefield.parameters[0].max_length and element.datatype.datetimefield.parameters[1].null is not None:
+                        string += 'max_length=' + element.datatype.datetimefield.parameters[0].max_length.number + ", "
+                        string += 'null=' + element.datatype.datetimefield.parameters[1].null.value + ")"
+
+                    elif element.datatype.datetimefield.parameters[0].null and element.datatype.datetimefield.parameters[1].max_length is not None:
+                        string += 'null=' + element.datatype.datetimefield.parameters[0].null.value + ", "
+                        string += 'max_length=' + element.datatype.datetimefield.parameters[1].max_length.number + ")"
+
+                    elif element.datatype.datetimefield.parameters[0].max_length and element.datatype.datetimefield.parameters[1].default is not None:
+                        string += 'max_length=' + element.datatype.datetimefield.parameters[0].max_length.number + ", "
+                        string += 'default=timezone.' + element.datatype.datetimefield.parameters[1].default.timezone.var + ")"
+
+                    elif element.datatype.datetimefield.parameters[0].default and element.datatype.datetimefield.parameters[1].max_length is not None:
+                        string += 'default=timezone.' + element.datatype.datetimefield.parameters[0].default.timezone.var + ", "
+                        string += 'max_length=' + element.datatype.datetimefield.parameters[1].max_length.number + ")"
+
+                    elif element.datatype.datetimefield.parameters[0].null and element.datatype.datetimefield.parameters[1].default is not None:
+                        string += 'null=' + element.datatype.datetimefield.parameters[0].null.value + ","
+                        string += 'default=timezone.' + element.datatype.datetimefield.parameters[1].default.timezone.var + ")"
+
+                    elif element.datatype.datetimefield.parameters[0].default and element.datatype.datetimefield.parameters[1].null is not None:
+                        string += 'default=timezone.' + element.datatype.datetimefield.parameters[0].default.timezone.var + ", "
+                        string += 'null=' + element.datatype.datetimefield.parameters[1].null.value + ")"
+
                 else:
-                    string += 'TextField' + "("
+                    string += 'IntegerField' + "("
 
-                    if len(element.datatype.textfield.parameters) == 0:
-                        string += ")),"
+                    if len(element.datatype.integerfield.parameters) == 0:
+                        string += ")"
 
-                    elif len(element.datatype.textfield.parameters) == 1:
-                        if element.datatype.textfield.parameters[0].max_length is not None:
-                            string += 'max_length=' + element.datatype.textfield.parameters[0].max_length.number + "),"
-                        if element.datatype.textfield.parameters[0].null is not None:
-                            string += 'null=' + element.datatype.textfield.parameters[0].null.value + "),"
-                        if element.datatype.textfield.parameters[0].default is not None:
-                            string += 'default=' + element.datatype.textfield.parameters[0].default.number + "),"
+                    if len(element.datatype.integerfield.parameters) == 1:
+                        if element.datatype.integerfield.parameters[0].max_length is not None:
+                            string += 'max_length=' + element.datatype.integerfield.parameters[0].max_length.number + ")"
+                        if element.datatype.integerfield.parameters[0].null is not None:
+                            string += 'null=' + element.datatype.integerfield.parameters[0].null.value + ")"
+                        if element.datatype.integerfield.parameters[0].default is not None:
+                            string += 'default=' + element.datatype.integerfield.parameters[0].default.number + ")"
 
-                    elif len(element.datatype.textfield.parameters) == 3:
-                        string += 'max_length=' + element.datatype.textfield.parameters[0].max_length.number + ", "
-                        string += 'null=' + element.datatype.textfield.parameters[1].null.value + ", "
-                        string += 'default=' + element.datatype.textfield.parameters[2].default.number + "),"
+                    elif len(element.datatype.integerfield.parameters) == 3:
+                        string += 'max_length=' + element.datatype.integerfield.parameters[0].max_length.number + ", "
+                        string += 'null=' + element.datatype.integerfield.parameters[1].null.value + ", "
+                        string += 'default=' + element.datatype.integerfield.parameters[2].default.number + ")"
 
-                    elif element.datatype.textfield.parameters[0].max_length and element.datatype.textfield.parameters[1].null is not None:
-                        string += 'max_length=' + element.datatype.textfield.parameters[0].max_length.number + ", "
-                        string += 'null=' + element.datatype.textfield.parameters[1].null.value + "),"
+                    elif element.datatype.integerfield.parameters[0].max_length and element.datatype.integerfield.parameters[1].null is not None:
+                        string += 'max_length=' + element.datatype.integerfield.parameters[0].max_length.number + ", "
+                        string += 'null=' + element.datatype.integerfield.parameters[1].null.value + ")"
 
-                    elif element.datatype.textfield.parameters[0].null and element.datatype.textfield.parameters[1].max_length is not None:
-                        string += 'null=' + element.datatype.textfield.parameters[0].null.value + ","
-                        string += 'max_length=' + element.datatype.textfield.parameters[1].max_length.number + "),"
+                    elif element.datatype.integerfield.parameters[0].null and element.datatype.integerfield.parameters[1].max_length is not None:
+                        string += 'null=' + element.datatype.integerfield.parameters[0].null.value + ", "
+                        string += 'max_length=' + element.datatype.integerfield.parameters[1].max_length.number + ")"
 
-                    elif element.datatype.textfield.parameters[0].max_length and element.datatype.textfield.parameters[1].default is not None:
-                        string += 'max_length=' + element.datatype.textfield.parameters[0].max_length.number + ", "
-                        string += 'default=' + element.datatype.textfield.parameters[1].default.number + "),"
+                    elif element.datatype.integerfield.parameters[0].max_length and element.datatype.integerfield.parameters[1].default is not None:
+                        string += 'max_length=' + element.datatype.integerfield.parameters[0].max_length.number + ", "
+                        string += 'default=' + element.datatype.integerfield.parameters[1].default.number + ")"
 
-                    elif element.datatype.textfield.parameters[0].default and element.datatype.textfield.parameters[1].max_length is not None:
-                        string += 'default=' + element.datatype.textfield.parameters[0].default.number + ", "
-                        string += 'max_length=' + element.datatype.textfield.parameters[1].max_length.number + "),"
+                    elif element.datatype.integerfield.parameters[0].default and element.datatype.integerfield.parameters[1].max_length is not None:
+                        string += 'default=' + element.datatype.integerfield.parameters[0].default.number + ", "
+                        string += 'max_length=' + element.datatype.integerfield.parameters[1].max_length.number + ")"
 
-                    elif element.datatype.textfield.parameters[0].null and element.datatype.textfield.parameters[1].default is not None:
-                        string += 'null=' + element.datatype.textfield.parameters[0].null.value + ","
-                        string += 'default=' + element.datatype.textfield.parameters[1].default.number + "),"
+                    elif element.datatype.integerfield.parameters[0].null and element.datatype.integerfield.parameters[1].default is not None:
+                        string += 'null=' + element.datatype.integerfield.parameters[0].null.value + ", "
+                        string += 'default=' + element.datatype.integerfield.parameters[1].default.number + ")"
 
-                    elif element.datatype.textfield.parameters[0].default and element.datatype.textfield.parameters[1].null is not None:
-                        string += 'default=' + element.datatype.textfield.parameters[0].default.number + ", "
-                        string += 'null=' + element.datatype.textfield.parameters[1].null.value + "),"
+                    elif element.datatype.integerfield.parameters[0].default and element.datatype.integerfield.parameters[1].null is not None:
+                        string += 'default=' + element.datatype.integerfield.parameters[0].default.number + ", "
+                        string += 'null=' + element.datatype.integerfield.parameters[1].null.value + ")"
 
             string += '\n\n\t'
             string += "'''"
@@ -425,4 +601,33 @@ def execute(path, grammar_file_name, example_file_name, export_dot, export_png):
 
     with open('C:/Users/Johny/Desktop/mrk/mysite/mysite/urls.py', 'w') as f:
         a = test5(models1)
+        f.write(a)
+
+
+    #Kreiranje template i layout deirektorojuma
+    newpath = r'C:/Users/Johny/Desktop/mrk/mysite/myapp/templates/layout'
+    if not os.path.exists(newpath):
+        os.makedirs(newpath)
+
+
+    #Generator index.html stranice
+    def test6(models):
+        string = '<!DOCTYPE html>\n'
+        string += '<html lang = "en">\n'
+        string += '<head>\n'
+        string += '\t<meta charset = "UTF-8">\n'
+        string += '\t<title> {% block title %}MyApp{% endblock %} </title>\n'
+        string += '\t{% load staticfiles %}\n'
+        string += '\t<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>\n'
+        string += '\t<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>\n'
+        string += '</head>\n'
+        string += '<body>\n'
+        string += '</body>\n'
+
+
+        return string
+
+
+    with open('C:/Users/Johny/Desktop/mrk/mysite/myapp/templates/layout/index.html', 'w') as f:
+        a = test6(models)
         f.write(a)
